@@ -15,7 +15,7 @@ This repository contains the source code for a covert TCP communication channel 
 ## Installation
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/covert-tcp.git
+   git clone https://github.com/N111X/covertTCP.git
    cd covert-tcp
    ```
 2. Compile the source code:
