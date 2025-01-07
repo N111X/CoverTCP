@@ -286,7 +286,7 @@ void forgepacket(unsigned int source_addr, unsigned int dest_addr, unsigned
             send_socket = socket(AF_INET, SOCK_RAW, IPPROTO_RAW);
             if (send_socket < 0)
             {
-                perror("El socket de envio no puede abrirse. ¿Eres root?");
+                perror("El socket de envio no puede abrirse. Â¿Eres root?");
                 exit(1);
             }
             /* Hacer el checksum del encabezado IP */
@@ -301,7 +301,7 @@ void forgepacket(unsigned int source_addr, unsigned int dest_addr, unsigned
             bcopy((char*)&send_tcp.tcp, (char*)&pseudo_header.tcp, 20);
             /* Hacer el checksum final de todo el paquete */
             send_tcp.tcp.check = in_cksum((unsigned short*)&pseudo_header, 32);
-            /* ¡Allá vamos....! */
+            /* Â¡AllÃ¡ vamos....! */
             sendto(send_socket, &send_tcp, 40, 0, (struct sockaddr*)&sin, sizeof(sin));
             printf("Enviando datos: %c\n", ch);
             close(send_socket);
@@ -329,7 +329,7 @@ void forgepacket(unsigned int source_addr, unsigned int dest_addr, unsigned
             recv_socket = socket(AF_INET, SOCK_RAW, 6);
             if (recv_socket < 0)
             {
-                perror("El socket de recepcion no puede abrirse. ¿Eres root?");
+                perror("El socket de recepcion no puede abrirse. Â¿Eres root?");
                 exit(1);
             }
             /* Escuchar el paquete de retorno en un socket pasivo */
@@ -428,7 +428,7 @@ unsigned short in_cksum(unsigned short* ptr, int nbytes)
 } /* fin in_cksm() */
 
 
-/* Resolutor generico desde fuente desconocida */
+
 unsigned int host_convert(char* hostname)
 {
     static struct in_addr i;
@@ -447,7 +447,7 @@ unsigned int host_convert(char* hostname)
     return i.s_addr;
 } /* fin resolutor */
 
-/* Tell them how to use this */
+
 void usage(char* progname)
 {
     printf("Uso de Covert TCP: \n%s -dest dest_ip -source source_ip -file filename -source_port port -dest_port port -server [tipo de codificacion]\n\n",
